@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Đăng nhập - VD2</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body class="auth-page">
+<div class="auth-card">
+    <div class="student-badge">LTWeb 09 · MSSV 24110171</div>
+    <h1>VD2 - Custom Login</h1>
+    <p class="student-name">Trần Quyết Chiến</p>
+    <p class="sub">Đăng nhập bằng <b>username hoặc email</b></p>
+
+    <div class="alert error" th:if="${param.error}">
+        Username/email hoặc password không đúng.
+    </div>
+    <div class="alert success" th:if="${param.logout}">
+        Bạn đã đăng xuất.
+    </div>
+
+    <form th:action="@{/login}" method="post">
+        <label>Username hoặc Email</label>
+        <input type="text"
+               name="username"
+               placeholder="24110171 hoặc 24110171@student.local"
+               required autofocus>
+
+        <label>Password</label>
+        <input type="password" name="password" placeholder="123456" required>
+
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+        <button type="submit">Đăng nhập</button>
+    </form>
+
+    <div class="hint">
+        <b>Tài khoản mẫu:</b><br>
+        Username: <code>24110171</code><br>
+        Email: <code>24110171@student.local</code><br>
+        Password: <code>123456</code>
+    </div>
+</div>
+</body>
+</html>

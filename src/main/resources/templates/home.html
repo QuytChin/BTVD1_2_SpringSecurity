@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <title>Trang chủ</title>
+</head>
+<body>
+<main layout:fragment="content" class="container">
+    <section class="panel hero">
+        <div>
+            <span class="eyebrow">BÀI TẬP LẬP TRÌNH WEB</span>
+            <h1>VD2 - Custom Login Spring Security</h1>
+            <p>
+                Xin chào
+                <strong th:text="${#authentication.principal.fullName}">Trần Quyết Chiến</strong>.
+            </p>
+            <p>Đăng nhập thành công bằng username hoặc email.</p>
+        </div>
+        <div class="student-card">
+            <div><span>Họ tên</span><b>Trần Quyết Chiến</b></div>
+            <div><span>MSSV</span><b>24110171</b></div>
+            <div><span>Lớp</span><b>LTWeb 09</b></div>
+        </div>
+    </section>
+
+    <section class="panel feature-panel">
+        <h2>Thông tin tài khoản đang đăng nhập</h2>
+        <div class="info-grid">
+            <div><span>Username</span><b th:text="${#authentication.principal.username}">24110171</b></div>
+            <div><span>Email</span><b th:text="${#authentication.principal.email}">email</b></div>
+            <div><span>Full name</span><b th:text="${#authentication.principal.fullName}">Trần Quyết Chiến</b></div>
+            <div><span>Role</span><b th:text="${#authentication.principal.role}">ROLE_USER</b></div>
+        </div>
+    </section>
+</main>
+</body>
+</html>
